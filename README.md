@@ -27,9 +27,10 @@ This will have to be plugged into the first line on cells 4 and 6 in theJupyter 
 
 I ran out of time completing this exercise so I was only able to load in the first 2 APIs. However, what I would do next would be:
 1. Add the last API and match the information from the US to the United States country node. Then add the relationships as seen in the data model to cases such as HospitalizedCase, VentilatorCase, and IcuCase.
-2. Show some basic data inside of the notebook using something like NetworkX in conjuction with py2neo, althoug h the easiest way to visualize the data is to just to open up the neo4j browser and run basic queries such as:
+2. Show some basic data inside of the notebook using something like NetworkX in conjuction with py2neo, although the easiest way to visualize the data is to just to open up the neo4j browser and run basic queries such as:
 
-`MATCH (n:Country)-[:LOCATED_IN]->()-[:LOCATED_IN]->(r:Region {name: 'Asia'})`
+`MATCH path=(n:Country)-[:LOCATED_IN]->()-[:LOCATED_IN]->(r:Region {name: 'Asia'})
+RETURN *`
 
 3. Do some basic data analytics such as calculating the regions or subregions that have the highest number of cases, as well as the subregions with the lowest recovery rates and highest recovery rates.
 4. Go back and start refactoring/optimizing the code starting with additional data cleaning. I did some basic data cleaning making sure rows with null values didn't make it into the code, but I would also want to validate cases and other fields to make sure any values that didn't make sense were eliminated.
