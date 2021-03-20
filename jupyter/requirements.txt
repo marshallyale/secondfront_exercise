@@ -1,0 +1,8 @@
+pyfunctional
+sqlalchemy
+psycopg2
+pymysql
+python-dotenv
+pyspark
+requests
+boto3
